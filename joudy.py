@@ -7,6 +7,8 @@ win_score = 0
 lose_score = 0
 
 def display_text(text, delay=0.03):
+    """Displays text character by character with a slight delay for a dramatic effect."""
+
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
@@ -14,6 +16,11 @@ def display_text(text, delay=0.03):
     print()
 
 def get_valid_input():
+    """Prompts the user for input and validates that it is either '1' or '2'.
+
+  Returns:
+  str: The valid user input ('1' or '2').
+  """
     while True:
         choice = input("Choose 1 or 2: ")
         if choice in ["1", "2"]:
@@ -23,12 +30,21 @@ def get_valid_input():
 
 def show_scores():
     global points, win_score, lose_score
+    """Displays the current win score, lose score, and total points of the player."""
     print(f"\n🏆 Win Score: {win_score}")
     print(f"💀 Lose Score: {lose_score}")
     print(f"⭐ Total Points: {points}\n")
 
 def scene_one(player_name):
     global points, win_score, lose_score
+    """Presents the first scene of the game, where the player approaches the cursed planet.
+
+  Args:
+  player_name (str): The name of the player.
+
+  Returns:
+  bool: True if the player successfully passes the scene, False otherwise.
+  """
     points = 0
     win_score = 0
     lose_score = 0
@@ -92,6 +108,11 @@ def scene_one(player_name):
         return True
 
 def scene_two():
+    """Presents the second scene, where the player explores a mysterious building.
+
+  Returns:
+  bool: True if the player successfully passes the scene, False otherwise.
+  """
     global points, win_score, lose_score
 
     display_text("🌌 Scene 2: Inside the Mysterious Building")
@@ -149,6 +170,11 @@ def scene_two():
         return True
 time.sleep(2)
 def scene_three():
+    """Presents the third scene, where the player explores an ancient city.
+
+  Returns:
+  bool: True if the player successfully passes the scene, False otherwise.
+  """
     global points, win_score, lose_score
 
     display_text("🏛️ Scene 3: The Ancient City Awakens...", 0.05)
@@ -209,6 +235,11 @@ def scene_three():
         return True
 time.sleep(4)
 def scene_four():
+    """Presents the fourth scene, introducing a random magic wand with various effects.
+
+  Returns:
+  bool: True after the scene concludes.
+  """
     global points, win_score, lose_score
 
     display_text("✨ Scene 4: The Random Magic Wand!", 0.05)
@@ -280,6 +311,7 @@ def scene_four():
 
 def start_game():
     display_text("🌌 Welcome to... THE CURSED PLANET 🌌", 0.05)
+    """Initiates the game, welcomes the player, and runs through the different scenes."""
     time.sleep(1)
     display_text("👤 What's your name, brave explorer?")
     player_name = input("Name: ")
@@ -297,4 +329,4 @@ def start_game():
         start_game()
 
 if __name__ == "__main__":
-    start_game()
+    start_game() 
